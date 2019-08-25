@@ -64,16 +64,16 @@ public class HaffmanCode {
 
         Queue<Node> queue = new PriorityQueue<>(queueComparator);
         for (Map.Entry<Character, Integer> entry : charsMapFrequency.entrySet()) {
-            queue.add(new Node(null, null, entry.getKey(), entry.getValue(), entry.getValue()));
+            queue.add(new Node(null, null, entry.getKey(), entry.getValue()));
         }
         while (queue.size() > 1) {
             Node nodeLeft = queue.poll();
             Node nodeRight = queue.poll();
-            queue.add(new Node(nodeLeft, nodeRight, null, null, nodeLeft.getPriority() + nodeRight.getPriority()));
+            queue.add(new Node(nodeLeft, nodeRight, null, nodeLeft.getPriority() + nodeRight.getPriority()));
         }
         if (charsMapFrequency.size() == 1) {
             Node nodeTop = queue.poll();
-            queue.add(new Node(nodeTop, null, null, null, nodeTop.getPriority()));
+            queue.add(new Node(nodeTop, null, null, nodeTop.getPriority()));
         }
         return queue.poll();
     }
@@ -105,14 +105,12 @@ public class HaffmanCode {
         Node left;
         Node Right;
         Character symbol;
-        Integer frequency;
         Integer priority;
 
-        public Node(Node left, Node right, Character symbol, Integer frequency, Integer priority) {
+        public Node(Node left, Node right, Character symbol, Integer priority) {
             this.left = left;
             Right = right;
             this.symbol = symbol;
-            this.frequency = frequency;
             this.priority = priority;
         }
 
@@ -138,7 +136,6 @@ public class HaffmanCode {
                     "left=" + left +
                     ", Right=" + Right +
                     ", symbol=" + symbol +
-                    ", frequency=" + frequency +
                     ", priority=" + priority +
                     '}';
         }
