@@ -29,7 +29,12 @@ public class Heap {
     public static List<Integer> extractMax() {
         int max = heap.get(0);
         System.out.println(max);
-        heap.remove(siftDown());
+        //На первое место ставим последний
+        heap.set(0, heap.get(heap.size() - 1));
+        //Последний удаляем
+        heap.remove(heap.size() - 1);
+        //Начинаем просеивать сверху вниз
+        siftDown();
         return heap;
     }
 
@@ -45,13 +50,13 @@ public class Heap {
         while (childIndex < heap.size()) {
 
             if (childIndex + 1 < heap.size() && heap.get(childIndex) <= heap.get(childIndex + 1)) {
-                swap(parentIndex, childIndex + 1);
-                parentIndex = childIndex + 1;
-
-            } else {
-                swap(parentIndex, childIndex);
-                parentIndex = childIndex;
+                childIndex = childIndex + 1;
             }
+            if (heap.get(parentIndex) >= heap.get(childIndex)) {
+                break;
+            }
+            swap(parentIndex, childIndex);
+            parentIndex = childIndex;
             childIndex = (parentIndex * 2) + 1;
         }
         return parentIndex;
