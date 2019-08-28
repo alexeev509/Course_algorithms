@@ -26,7 +26,7 @@ public class MergeSort {
     public static void mergeSort(int[] mass, int low, int heigh) {
         if (low < heigh) {
 
-            int middle = (low + heigh) / 2;
+            int middle = low + (heigh - low) / 2;
 
             mergeSort(mass, low, middle);
             mergeSort(mass, middle + 1, heigh);
@@ -36,24 +36,32 @@ public class MergeSort {
         }
     }
 
-    public static void merge(int[] mass, int low, int middle, int heigh) {
+    public static void merge(int[] mass, int low, int middle, int height) {
         int leftIndex = low;
         int rightIndex = middle + 1;
         int index = low;
-        int[] copyOfMass = Arrays.copyOfRange(mass, 0, mass.length);
+        int[] copyOfMass = copyOfRange(mass, low, height);
 
-        while (index <= heigh) {
-            if (leftIndex <= middle && rightIndex <= heigh) {
+        while (index <= height) {
+            if (leftIndex <= middle && rightIndex <= height) {
                 if (copyOfMass[leftIndex] > copyOfMass[rightIndex]) {
                     mass[index++] = copyOfMass[rightIndex++];
                 } else if (copyOfMass[leftIndex] <= copyOfMass[rightIndex]) {
                     mass[index++] = copyOfMass[leftIndex++];
                 }
-            } else if (rightIndex <= heigh) {
+            } else if (rightIndex <= height) {
                 mass[index++] = copyOfMass[rightIndex++];
             } else if (leftIndex <= middle) {
                 mass[index++] = copyOfMass[leftIndex++];
             }
         }
+    }
+
+    public static int[] copyOfRange(int[] mass, int low, int height) {
+        int[] copyOfMass = new int[mass.length];
+        for (int i = low; i <= height; i++) {
+            copyOfMass[i] = mass[i];
+        }
+        return copyOfMass;
     }
 }
