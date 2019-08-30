@@ -37,31 +37,33 @@ public class MergeSort {
     }
 
     public static void merge(int[] mass, int low, int middle, int height) {
-        int leftIndex = low;
-        int rightIndex = middle + 1;
+        int leftIndex = 0;
+        int rightIndex = 0;
         int index = low;
-        int[] copyOfMass = copyOfRange(mass, low, height);
+        int[] A = new int[middle - low + 1];
+        int[] B = new int[height - middle];
+
+        for (int i = 0; i < A.length; i++) {
+            A[i] = mass[low + i];
+        }
+
+        for (int i = 0; i < B.length; i++) {
+            B[i] = mass[middle + 1 + i];
+        }
 
         while (index <= height) {
-            if (leftIndex <= middle && rightIndex <= height) {
-                if (copyOfMass[leftIndex] > copyOfMass[rightIndex]) {
-                    mass[index++] = copyOfMass[rightIndex++];
-                } else if (copyOfMass[leftIndex] <= copyOfMass[rightIndex]) {
-                    mass[index++] = copyOfMass[leftIndex++];
+            if (leftIndex < A.length && rightIndex < B.length) {
+                if (A[leftIndex] > B[rightIndex]) {
+                    mass[index++] = B[rightIndex++];
+
+                } else if (A[leftIndex] <= B[rightIndex]) {
+                    mass[index++] = A[leftIndex++];
                 }
-            } else if (rightIndex <= height) {
-                mass[index++] = copyOfMass[rightIndex++];
-            } else if (leftIndex <= middle) {
-                mass[index++] = copyOfMass[leftIndex++];
+            } else if (rightIndex < B.length) {
+                mass[index++] = B[rightIndex++];
+            } else if (leftIndex < A.length) {
+                mass[index++] = A[leftIndex++];
             }
         }
-    }
-
-    public static int[] copyOfRange(int[] mass, int low, int height) {
-        int[] copyOfMass = new int[mass.length];
-        for (int i = low; i <= height; i++) {
-            copyOfMass[i] = mass[i];
-        }
-        return copyOfMass;
     }
 }
