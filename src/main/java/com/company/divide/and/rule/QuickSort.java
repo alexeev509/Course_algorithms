@@ -28,6 +28,7 @@ public class QuickSort {
     }
 
     private static int partition(int[] mass, int start, int end) {
+        //pivot element is first element
         int meinElemenet = mass[start];
         int j = start;
         for (int i = start + 1; i < end; i++) {
