@@ -1,4 +1,5 @@
 import com.company.divide.and.rule.QuickSort;
+import com.company.divide.and.rule.QuickSortMiddlePivotElement;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -34,6 +35,17 @@ public class QuickSortTest {
         int[] expected = Arrays.copyOf(actual, actual.length);
 
         actual = QuickSort.quickSort(actual, 0, actual.length);
+        Arrays.sort(expected);
+
+        Assert.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void testQuickSortWithMiddleElement() throws Exception {
+        int[] actual = new int[]{44, 66, 1, 8, 14, 22, 99, 3};
+        int[] expected = Arrays.copyOf(actual, actual.length);
+
+        actual = QuickSortMiddlePivotElement.sort(actual, 0, actual.length);
         Arrays.sort(expected);
 
         Assert.assertArrayEquals(expected, actual);
