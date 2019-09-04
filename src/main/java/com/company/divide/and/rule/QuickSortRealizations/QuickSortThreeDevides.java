@@ -1,4 +1,4 @@
-package com.company.divide.and.rule;
+package com.company.divide.and.rule.QuickSortRealizations;
 
 import java.util.Random;
 
@@ -30,7 +30,8 @@ public class QuickSortThreeDevides {
      * Разбиваем на три отрезка.
      */
     private static int[] partition(int[] array, int l, int r) {
-        int ref = (int) (Math.random() * (r - l)) + l;
+//        int ref = (int) (Math.random() * (r - l)) + l;
+        int ref = l - (l - r) / 2;
         int x = array[ref];
         int lm = l;
         int rm = r;

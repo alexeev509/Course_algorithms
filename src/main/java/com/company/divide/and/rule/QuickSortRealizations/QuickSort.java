@@ -1,4 +1,4 @@
-package com.company.divide.and.rule;
+package com.company.divide.and.rule.QuickSortRealizations;
 
 import java.util.Random;
 import java.util.Scanner;

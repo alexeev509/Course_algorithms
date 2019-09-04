@@ -1,9 +1,8 @@
-package com.company.divide.and.rule;
+package com.company.divide.and.rule.QuickSortRealizations;
 
 import java.util.Random;
 
-//https://www.geeksforgeeks.org/quicksort-tail-call-optimization-reducing-worst-case-space-log-n/
-public class QuickSortTailRecursion {
+public class QuickSortMiddlePivotElement {
     public static void main(String[] args) {
         int[] mass = insertRandomNumbersInMass(8);
         sort(mass, 0, mass.length - 1);
@@ -19,16 +18,19 @@ public class QuickSortTailRecursion {
     }
 
     public static int[] sort(int[] mass, int low, int height) {
-        while (low < height) {
+        if (low < height) {
             int m = partition(mass, low, height);
-            sort(mass, low, m - 1);
-            low = m + 1;
+            sort(mass, low, m);
+            sort(mass, m + 1, height);
         }
         return mass;
     }
 
     private static int partition(int[] mass, int low, int height) {
+        int pivot = low - (low - height) / 2;
+        swap(mass, low, pivot);
         int mainElement = mass[low];
+
         int j = low;
         for (int i = low + 1; i < height; i++) {
             if (mass[i] < mainElement) {
