@@ -1,11 +1,11 @@
-package com.company.dynamic;
+package com.company.dynamic.sequence;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class BiggestSequence {
+public class BiggestSequenceWithDevide {
     public static void main(String[] args) {
-        run(new Scanner(System.in));
+        System.out.println(run(new Scanner(System.in)));
     }
 
     public static int run(Scanner scanner) {
@@ -24,7 +24,7 @@ public class BiggestSequence {
             d[i] = 1;
             for (int j = 0; j < i; j++) {
                 //Think about d !!
-                if (mass[j] < mass[i] && d[j] + 1 > d[i]) {
+                if (mass[i] % mass[j] == 0 && d[j] + 1 > d[i]) {
                     d[i] = d[j] + 1;
                 }
             }

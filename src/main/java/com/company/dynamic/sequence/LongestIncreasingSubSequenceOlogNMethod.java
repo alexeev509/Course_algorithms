@@ -1,4 +1,4 @@
-package com.company.dynamic;
+package com.company.dynamic.sequence;
 
 public class LongestIncreasingSubSequenceOlogNMethod {
 

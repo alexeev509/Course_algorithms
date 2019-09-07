@@ -1,5 +1,5 @@
-import com.company.dynamic.BiggestSequence;
-import com.company.dynamic.BiggestSequenceWithDevide;
+import com.company.dynamic.sequence.BiggestSequence;
+import com.company.dynamic.sequence.BiggestSequenceWithDevide;
 import org.junit.Assert;
 import org.junit.Test;
 
