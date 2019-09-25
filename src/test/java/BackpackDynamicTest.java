@@ -1,13 +1,13 @@
-import com.company.dynamic.Snapback;
+import com.company.dynamic.Backpack;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Scanner;
 
-public class SnapbackDynemicTest {
+public class BackpackDynamicTest {
     @Test
-    public void snapBackFirstTest() throws Exception {
-        Snapback snapback = new Snapback(new Scanner("10\n" +
+    public void backpackFirstTest() throws Exception {
+        Backpack backpack = new Backpack(new Scanner("10\n" +
                 "4\n" +
                 "6\n" +
                 "30\n" +
@@ -17,14 +17,14 @@ public class SnapbackDynemicTest {
                 "16\n" +
                 "2\n" +
                 "9"));
-        int actual = snapback.getMaxSumm();
+        int actual = backpack.getMaxSumm();
         int expected = 46;
         Assert.assertEquals(actual, expected);
     }
 
     @Test
-    public void snapBackSecondTest() throws Exception {
-        Snapback snapback = new Snapback(new Scanner("13\n" +
+    public void backpackSecondTest() throws Exception {
+        Backpack backpack = new Backpack(new Scanner("13\n" +
                 "5\n" +
                 "3\n" +
                 "1\n" +
@@ -36,7 +36,7 @@ public class SnapbackDynemicTest {
                 "7\n" +
                 "9\n" +
                 "6"));
-        int actual = snapback.getMaxSumm();
+        int actual = backpack.getMaxSumm();
         int expected = 13;
         Assert.assertEquals(actual, expected);
     }

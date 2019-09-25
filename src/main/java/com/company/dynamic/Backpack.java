@@ -2,7 +2,7 @@ package com.company.dynamic;
 
 import java.util.Scanner;
 
-public class Snapback {
+public class Backpack {
 
     int[][] mass;
     int W;
@@ -10,7 +10,7 @@ public class Snapback {
     int[] w;
     int[] c;
 
-    public Snapback(Scanner scanner) {
+    public Backpack(Scanner scanner) {
         W = scanner.nextInt();
         n = scanner.nextInt();
         w = new int[n + 1];
@@ -26,8 +26,8 @@ public class Snapback {
     }
 
     public static void main(String[] args) {
-        Snapback snapback = new Snapback(new Scanner(System.in));
-        System.out.println(snapback.getMaxSumm());
+        Backpack backpack = new Backpack(new Scanner(System.in));
+        System.out.println(backpack.getMaxSumm());
     }
 
     public int getMaxSumm() {
