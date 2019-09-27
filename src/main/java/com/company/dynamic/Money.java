@@ -8,7 +8,7 @@ public class Money {
     public static void main(String[] args) {
         Money money = new Money();
         money.setN(10);
-        money.setD(new int[10 + 1]);
+        money.setD(new int[money.getN() + 1]);
         money.setC(new int[]{1, 5, 10});
         System.out.println(money.changer());
     }
